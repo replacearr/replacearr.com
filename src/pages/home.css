@@ -1,0 +1,279 @@
+.home-hero {
+  position: relative;
+  min-height: calc(100vh - var(--nav-h));
+  min-height: calc(100dvh - var(--nav-h));
+  display: grid;
+  place-items: center;
+  padding: clamp(1.5rem, 4vw, 3rem) var(--page-pad);
+  overflow: hidden;
+  isolation: isolate;
+  background: #07090f;
+}
+
+.home-atmosphere {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 80% 55% at 50% -10%, rgba(79, 140, 255, 0.22), transparent 55%),
+    radial-gradient(ellipse 55% 45% at 85% 75%, rgba(46, 230, 197, 0.12), transparent 50%),
+    radial-gradient(ellipse 45% 40% at 10% 80%, rgba(122, 92, 255, 0.14), transparent 50%),
+    linear-gradient(165deg, #0a0d16 0%, #07090f 45%, #0b1218 100%);
+}
+
+.home-atmosphere::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background: conic-gradient(
+    from 210deg at 50% 40%,
+    rgba(46, 230, 197, 0.08),
+    rgba(79, 140, 255, 0.1),
+    rgba(122, 92, 255, 0.08),
+    rgba(46, 230, 197, 0.08)
+  );
+  animation: home-drift 28s linear infinite;
+  opacity: 0.7;
+}
+
+.home-atmosphere::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(238, 242, 247, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(238, 242, 247, 0.03) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black, transparent 75%);
+  animation: home-grid-fade 8s ease-in-out infinite alternate;
+}
+
+.home-hero-copy {
+  width: min(100%, 40rem);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+.home-mark {
+  width: clamp(4.5rem, 12vw, 6rem);
+  height: clamp(4.5rem, 12vw, 6rem);
+  border-radius: 1.25rem;
+  display: block;
+  animation: home-float 6s ease-in-out 1s infinite;
+}
+
+.home-brand {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.75rem, 9vw, 4.75rem);
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  background: linear-gradient(115deg, #ffffff 10%, #c9d7ff 45%, #2ee6c5 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.home-lede {
+  max-width: 32rem;
+  color: #9aa6b8;
+  font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+  line-height: 1.65;
+}
+
+.home-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem 1rem;
+  margin-top: 0.35rem;
+}
+
+.home-btn-primary {
+  color: #061018;
+  background: linear-gradient(120deg, #2ee6c5, #7cf0ff 40%, #4f8cff);
+  border: none;
+}
+
+.home-btn-primary:hover {
+  background: linear-gradient(120deg, #5ff0d4, #9af5ff 40%, #6ea0ff);
+}
+
+.home-btn-ghost {
+  color: #eef2f7;
+  border-color: rgba(238, 242, 247, 0.18);
+  background: rgba(238, 242, 247, 0.03);
+}
+
+.home-btn-ghost:hover {
+  border-color: rgba(238, 242, 247, 0.32);
+  background: rgba(238, 242, 247, 0.08);
+}
+
+.home-savings {
+  margin-top: 2rem;
+  padding: 1.5rem 1.4rem;
+  display: grid;
+  gap: 1rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+}
+
+.home-savings-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.home-savings-value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.75rem, 4vw, 2.35rem);
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.home-savings-label {
+  color: var(--ink-muted);
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.home-savings-vs {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-ink);
+}
+
+.home-savings-note {
+  color: var(--ink-muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  max-width: 40rem;
+}
+
+@media (min-width: 760px) {
+  .home-savings {
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-rows: auto auto;
+    align-items: end;
+    column-gap: 1.5rem;
+    row-gap: 1rem;
+  }
+
+  .home-savings-vs {
+    padding-bottom: 0.35rem;
+  }
+
+  .home-savings-note {
+    grid-column: 1 / -1;
+  }
+}
+
+.home-proofs {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.home-proof {
+  padding: 1.35rem 1.4rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--line);
+}
+
+.home-proof h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.45rem;
+}
+
+.home-proof p {
+  color: var(--ink-muted);
+  line-height: 1.55;
+  font-size: 0.98rem;
+}
+
+.home-strip {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.home-strip a {
+  display: block;
+}
+
+.home-strip .shot-frame {
+  aspect-ratio: 16 / 10;
+}
+
+.home-strip .shot-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.home-strip-caption {
+  margin-top: 0.55rem;
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+  font-weight: 500;
+}
+
+@keyframes home-drift {
+  from {
+    transform: rotate(0deg) scale(1.15);
+  }
+  to {
+    transform: rotate(360deg) scale(1.15);
+  }
+}
+
+@keyframes home-grid-fade {
+  from {
+    opacity: 0.35;
+  }
+  to {
+    opacity: 0.7;
+  }
+}
+
+@keyframes home-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-atmosphere::before,
+  .home-atmosphere::after,
+  .home-mark {
+    animation: none !important;
+  }
+}
+
+@media (min-width: 760px) {
+  .home-proofs {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .home-strip {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

@@ -3,18 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Replacearr — Coming Soon</title>
+    <title>Replacearr — One binary for your media stack</title>
     <meta
       name="description"
-      content="Replacearr is a single-binary Go replacement for Sonarr, Radarr, and Prowlarr. Site launching soon."
+      content="Replacearr is a single Go binary that replaces the *arr sprawl: TV, movies, music, books, and indexers in one process and one database."
     />
-    <meta name="theme-color" content="#07090f" />
+    <meta name="theme-color" content="#F2F5F8" />
     <link rel="icon" type="image/png" href="/favicon.png" sizes="192x192" />
     <link rel="apple-touch-icon" href="/icon.png" />
-    <meta property="og:title" content="Replacearr — Coming Soon" />
+    <meta property="og:title" content="Replacearr" />
     <meta
       property="og:description"
-      content="One process. One database. TV, movies, and indexers — without the *arr sprawl."
+      content="One process. One database. TV, movies, music, books, and indexers — without the *arr sprawl."
     />
     <meta property="og:image" content="https://replacearr.com/icon.png" />
     <meta property="og:url" content="https://replacearr.com/" />
@@ -23,270 +23,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Sora:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Figtree:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <style>
-      :root {
-        --bg: #07090f;
-        --ink: #eef2f7;
-        --muted: #9aa6b8;
-        --line: rgba(238, 242, 247, 0.12);
-        --cyan: #2ee6c5;
-        --sky: #4f8cff;
-        --violet: #7a5cff;
-        --font-display: "Outfit", sans-serif;
-        --font-body: "Sora", sans-serif;
-      }
-
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-
-      html,
-      body {
-        min-height: 100%;
-      }
-
-      body {
-        font-family: var(--font-body);
-        color: var(--ink);
-        background: var(--bg);
-        overflow-x: hidden;
-        -webkit-font-smoothing: antialiased;
-      }
-
-      .stage {
-        position: relative;
-        min-height: 100vh;
-        min-height: 100dvh;
-        display: grid;
-        place-items: center;
-        padding: clamp(1.5rem, 4vw, 3rem);
-        isolation: isolate;
-      }
-
-      .atmosphere {
-        position: absolute;
-        inset: 0;
-        z-index: -1;
-        overflow: hidden;
-        background:
-          radial-gradient(ellipse 80% 55% at 50% -10%, rgba(79, 140, 255, 0.22), transparent 55%),
-          radial-gradient(ellipse 55% 45% at 85% 75%, rgba(46, 230, 197, 0.12), transparent 50%),
-          radial-gradient(ellipse 45% 40% at 10% 80%, rgba(122, 92, 255, 0.14), transparent 50%),
-          linear-gradient(165deg, #0a0d16 0%, #07090f 45%, #0b1218 100%);
-      }
-
-      .atmosphere::before {
-        content: "";
-        position: absolute;
-        inset: -20%;
-        background:
-          conic-gradient(
-            from 210deg at 50% 40%,
-            rgba(46, 230, 197, 0.08),
-            rgba(79, 140, 255, 0.1),
-            rgba(122, 92, 255, 0.08),
-            rgba(46, 230, 197, 0.08)
-          );
-        animation: drift 28s linear infinite;
-        opacity: 0.7;
-      }
-
-      .atmosphere::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background-image:
-          linear-gradient(rgba(238, 242, 247, 0.03) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(238, 242, 247, 0.03) 1px, transparent 1px);
-        background-size: 64px 64px;
-        mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black, transparent 75%);
-        animation: grid-fade 8s ease-in-out infinite alternate;
-      }
-
-      .content {
-        width: min(100%, 40rem);
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1.25rem;
-      }
-
-      .mark {
-        width: clamp(4.5rem, 12vw, 6rem);
-        height: clamp(4.5rem, 12vw, 6rem);
-        border-radius: 1.25rem;
-        animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both, float 6s ease-in-out 1s infinite;
-      }
-
-      .brand {
-        font-family: var(--font-display);
-        font-weight: 700;
-        font-size: clamp(2.75rem, 9vw, 4.75rem);
-        letter-spacing: -0.04em;
-        line-height: 0.95;
-        background: linear-gradient(115deg, #ffffff 10%, #c9d7ff 45%, #2ee6c5 100%);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-        animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.08s both;
-      }
-
-      .headline {
-        font-family: var(--font-display);
-        font-weight: 600;
-        font-size: clamp(1.15rem, 3.2vw, 1.5rem);
-        letter-spacing: -0.02em;
-        color: var(--ink);
-        animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.16s both;
-      }
-
-      .lede {
-        max-width: 32rem;
-        font-size: clamp(0.95rem, 2.2vw, 1.05rem);
-        line-height: 1.65;
-        color: var(--muted);
-        animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.24s both;
-      }
-
-      .actions {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.75rem 1rem;
-        margin-top: 0.5rem;
-        animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.32s both;
-      }
-
-      .actions a {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 2.75rem;
-        padding: 0.7rem 1.25rem;
-        border-radius: 0.55rem;
-        font-size: 0.92rem;
-        font-weight: 500;
-        text-decoration: none;
-        transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-      }
-
-      .actions a:hover {
-        transform: translateY(-1px);
-      }
-
-      .actions a.primary {
-        color: #061018;
-        background: linear-gradient(120deg, var(--cyan), #7cf0ff 40%, var(--sky));
-      }
-
-      .actions a.primary:hover {
-        background: linear-gradient(120deg, #5ff0d4, #9af5ff 40%, #6ea0ff);
-      }
-
-      .actions a.ghost {
-        color: var(--ink);
-        border: 1px solid var(--line);
-        background: rgba(238, 242, 247, 0.03);
-      }
-
-      .actions a.ghost:hover {
-        border-color: rgba(238, 242, 247, 0.28);
-        background: rgba(238, 242, 247, 0.06);
-      }
-
-      .footnote {
-        margin-top: 0.75rem;
-        font-size: 0.8rem;
-        color: rgba(154, 166, 184, 0.75);
-        animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both;
-      }
-
-      .footnote a {
-        color: inherit;
-        text-decoration: underline;
-        text-underline-offset: 0.18em;
-      }
-
-      @keyframes rise {
-        from {
-          opacity: 0;
-          transform: translateY(18px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-8px);
-        }
-      }
-
-      @keyframes drift {
-        from {
-          transform: rotate(0deg) scale(1.15);
-        }
-        to {
-          transform: rotate(360deg) scale(1.15);
-        }
-      }
-
-      @keyframes grid-fade {
-        from {
-          opacity: 0.35;
-        }
-        to {
-          opacity: 0.7;
-        }
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        .atmosphere::before,
-        .atmosphere::after,
-        .mark,
-        .brand,
-        .headline,
-        .lede,
-        .actions,
-        .footnote {
-          animation: none !important;
-        }
-      }
-    </style>
   </head>
   <body>
-    <main class="stage">
-      <div class="atmosphere" aria-hidden="true"></div>
-      <div class="content">
-        <img class="mark" src="/icon.png" width="96" height="96" alt="Replacearr" />
-        <h1 class="brand">Replacearr</h1>
-        <p class="headline">Coming soon</p>
-        <p class="lede">
-          One Go binary for TV, movies, and indexers — a unified replacement for Sonarr, Radarr, and
-          Prowlarr.
-        </p>
-        <div class="actions">
-          <a class="primary" href="https://github.com/replacearr/replacearr">View on GitHub</a>
-          <a class="ghost" href="https://discord.gg/WUrKJuE5XB">Discord</a>
-          <a class="ghost" href="https://hub.docker.com/r/ldrrp/replacearr">Docker Hub</a>
-        </div>
-        <p class="footnote">
-          Source is live while this site is under construction ·
-          <a href="https://github.com/replacearr/replacearr.com">replacearr.com repo</a>
-        </p>
-      </div>
-    </main>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

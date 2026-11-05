@@ -1,0 +1,31 @@
+---
+description: React 19 + Vite + Router conventions for replacearr.com
+globs: "{src/**,vite.config.ts,package.json,index.html}"
+alwaysApply: false
+---
+
+# React + Vite
+
+## Stack
+
+- React 19 with the automatic JSX runtime.
+- Vite 5 (`@vitejs/plugin-react`). Prefer `react-router-dom` v6 for broader Node compatibility.
+- Motion: `import { motion, useReducedMotion } from "motion/react"`.
+- Icons: `lucide-react` sparingly (nav menu, etc.).
+- Styles: plain CSS + CSS variables. Colocate page CSS next to the page module.
+
+## Structure
+
+- Entry: `index.html` → `src/main.tsx` → `App` (router) → `SiteShell` → pages.
+- Routes: `/`, `/product`, `/install`, `/gallery`.
+- Static deploy assets live in `public/` (`CNAME`, favicons, `images/`).
+
+## TypeScript & verify
+
+- Strict mode. Run `npm run typecheck` after TS/TSX changes.
+- `npm run build` must emit `dist/` and SPA `404.html` (`cp dist/index.html dist/404.html`).
+
+## Dependencies
+
+- Do not add Tailwind, CSS-in-JS, auth, or a docs/CMS stack unless explicitly requested.
+- Do not reintroduce a hero background video.

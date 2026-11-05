@@ -1,0 +1,38 @@
+---
+description: replacearr.com purpose, layout, and invariants for every change
+alwaysApply: true
+---
+
+# replacearr.com
+
+Public marketing site for Replacearr. React 19 + Vite multi-page SPA. Repo: `github.com/replacearr/replacearr.com`. Product code stays in the sibling `replacearr` repo.
+
+## Layout
+
+- `src/pages/` — Home, Product, Install, Gallery
+- `src/components/SiteShell.tsx` — sticky nav + footer shell
+- `src/styles/tokens.css` + `layout.css` — design tokens and shared primitives
+- `public/images/{logos,desktop,mobile}/` — brand mark and UI screenshots
+- `public/CNAME` — `replacearr.com`
+- `.github/workflows/deploy.yml` — Pages build/deploy
+- `AGENTS.md` — agent map
+
+## Invariants
+
+- Marketing SPA only. No Go API, SQLite, auth, or second UI framework.
+- Plain CSS only (no Tailwind, no styled-components).
+- Stack: React 19, Vite, `react-router-dom`, `motion`, `lucide-react`.
+- Light teal/ink visual system (see design-system). No background video.
+- Brand is **Replacearr**. CTAs: GitHub, Docker Hub, Discord.
+- Sonarr / Radarr / Prowlarr are mentioned only as the replaced stack — never as outbound links.
+- Assets live under `public/images/` (sourced from `replacearr/images/`).
+- Never commit `node_modules/`, `dist/`, `.env`, or secrets.
+- Build must copy `dist/index.html` → `dist/404.html` for GitHub Pages SPA routes.
+
+## Commands
+
+```bash
+npm run dev
+npm run typecheck
+npm run build
+```

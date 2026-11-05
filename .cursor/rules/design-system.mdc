@@ -1,0 +1,35 @@
+---
+description: Light signal-board visual system, brand, and motion for replacearr.com
+globs: src/**/*.{tsx,css}
+alwaysApply: false
+---
+
+# Design system
+
+## Tokens
+
+- Page: `#F2F5F8`. Ink: `#101820`. Muted: `#5A6672`. Accent: `#0D9488` / `#0A5C56`.
+- Display: Bricolage Grotesque. Body: Figtree.
+- Defined in `src/styles/tokens.css`. Prefer CSS variables over hard-coded hex in components.
+
+## Brand & composition
+
+- Home first viewport: dark atmosphere stage (radial/conic gradients + soft grid from the old coming-soon page), Replacearr mark + wordmark centered, one short line, CTA group. No hero screenshot or video; product shots live below the fold / Gallery.
+- One job per section. No hero card grids, pill clusters, or fake metrics.
+- Avoid purple/indigo SaaS themes, cream+terracotta editorial tropes, glow stacks, and multi-layer shadows.
+
+## Copy
+
+- Product destinations only: GitHub, Docker Hub, Discord.
+- *arr names are legacy context (“replaces the *arr stack”, “wire-compatible APIs”). Do not link out to Sonarr, Radarr, or Prowlarr sites.
+
+## Layout
+
+- Shared shell: sticky nav, page outlet, footer.
+- Breakpoint for desktop nav: `860px`.
+- Screenshots use `.shot-frame` — real UI captures from `public/images/`.
+
+## Motion
+
+- Import from `motion/react`. Ease `[0.16, 1, 0.3, 1]`.
+- Keep motion intentional (nav enter, hero rise/reveal). Honor `useReducedMotion` / `prefers-reduced-motion`.

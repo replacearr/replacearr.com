@@ -1,0 +1,62 @@
+.install-hero {
+  padding: 3rem var(--page-pad) 0;
+  max-width: var(--max);
+  margin: 0 auto;
+}
+
+.install-grid {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 2.25rem;
+}
+
+.install-card {
+  padding: 1.5rem 1.4rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--line);
+}
+
+.install-card h2 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.55rem;
+}
+
+.install-card p {
+  color: var(--ink-muted);
+  line-height: 1.55;
+}
+
+.install-card .btn {
+  margin-top: 1.1rem;
+}
+
+.install-steps {
+  margin-top: 3rem;
+}
+
+.install-steps ol {
+  margin-top: 1.25rem;
+  padding-left: 1.25rem;
+  display: grid;
+  gap: 0.85rem;
+  color: var(--ink);
+  line-height: 1.55;
+  max-width: 40rem;
+}
+
+.install-note {
+  margin-top: 2rem;
+  padding: 1.25rem 1.35rem;
+  border-left: 3px solid var(--accent);
+  background: var(--accent-soft);
+  max-width: 40rem;
+  line-height: 1.55;
+}
+
+@media (min-width: 800px) {
+  .install-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
