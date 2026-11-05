@@ -6,6 +6,7 @@ import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 const links = [
   { to: "/product", label: "Product" },
   { to: "/install", label: "Install" },
+  { to: "/plugins", label: "Plugins" },
   { to: "/gallery", label: "Gallery" },
 ] as const;
 
@@ -94,6 +95,7 @@ export default function SiteShell() {
           </div>
           <div>
             <div className="footer-links">
+              <Link to="/plugins">Plugins</Link>
               <a href="https://github.com/replacearr/replacearr">GitHub</a>
               <a href="https://hub.docker.com/r/ldrrp/replacearr">Docker Hub</a>
               <a href="https://discord.gg/WUrKJuE5XB">Discord</a>

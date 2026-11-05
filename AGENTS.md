@@ -8,7 +8,8 @@ A React 19 + Vite multi-page marketing site for Replacearr. Plain CSS (no Tailwi
 
 | Path | Role |
 | :--- | :--- |
-| `src/pages/` | Home, Product, Install, Gallery |
+| `src/pages/` | Home, Product, Install, Plugins, Gallery |
+| `src/lib/pluginsCatalog.ts` | Live fetch of `replacearr-plugins` `registry.json` + manifests |
 | `src/components/SiteShell.tsx` | Shared nav + footer |
 | `src/styles/tokens.css` | Color, type, spacing tokens |
 | `src/styles/layout.css` | Shell + shared UI primitives |
@@ -26,6 +27,8 @@ Product source of truth is the sibling app repo `replacearr/replacearr`. Do not 
 | `/` | Brand hero + proofs + screenshot strip |
 | `/product` | Capabilities with real UI shots |
 | `/install` | Docker Hub / GitHub / Discord get-started |
+| `/plugins` | Marketplace search + pagination (live catalog) |
+| `/plugins/:pluginId` | Individual curated plugin detail |
 | `/gallery` | Curated desktop + mobile screenshots |
 
 ## Rules
@@ -47,17 +50,18 @@ Product source of truth is the sibling app repo `replacearr/replacearr`. Do not 
 
 ## Working agreement
 
-- Prefer `npm run dev`, `npm run build`, `npm run typecheck`.
+- Prefer `make` targets over raw npm: `make install`, `make dev`, `make build`, `make typecheck`, `make preview`.
 - Do not hand-edit `dist/`.
 - Refresh screenshots/logos from `/home/ldrrp/Workspaces/replacearr/images/` into `public/images/`.
+- Load the plugin marketplace from the live `replacearr-plugins` registry URL; do not vendor `registry.json` or manifests into this site.
 - Preserve `public/CNAME` and `.nojekyll`.
 - Keep secrets out of the repo.
 
 ## Verify
 
 ```bash
-npm install
-npm run typecheck
-npm run build
-npm run dev
+make install
+make typecheck
+make build
+make dev
 ```

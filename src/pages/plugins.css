@@ -1,0 +1,330 @@
+.plugins-hero {
+  padding: 3rem var(--page-pad) 0;
+  max-width: var(--max);
+  margin: 0 auto;
+}
+
+.plugins-hero .section-lede a {
+  color: var(--accent-ink);
+  font-weight: 600;
+}
+
+.plugins-hero .section-lede a:hover {
+  text-decoration: underline;
+}
+
+.plugins-toolbar {
+  display: grid;
+  gap: 0.85rem;
+  margin-top: 2rem;
+}
+
+.plugins-search,
+.plugins-type {
+  width: 100%;
+  min-height: 2.85rem;
+  padding: 0.7rem 0.95rem;
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  background: var(--bg-elevated);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.98rem;
+}
+
+.plugins-search:focus,
+.plugins-type:focus {
+  outline: 2px solid color-mix(in srgb, var(--accent) 55%, transparent);
+  outline-offset: 1px;
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
+}
+
+.plugins-meta {
+  margin-top: 1.15rem;
+  color: var(--ink-muted);
+  font-size: 0.95rem;
+}
+
+.plugins-meta a {
+  color: var(--accent-ink);
+  font-weight: 600;
+}
+
+.plugins-meta a:hover {
+  text-decoration: underline;
+}
+
+.plugins-status {
+  margin-top: 2.5rem;
+  padding: 1.35rem 1.4rem;
+  border: 1px solid var(--line);
+  background: var(--bg-elevated);
+  color: var(--ink-muted);
+  line-height: 1.55;
+  max-width: 40rem;
+}
+
+.plugins-status.is-error {
+  border-left: 3px solid #b42318;
+  background: color-mix(in srgb, #b42318 8%, var(--bg-elevated));
+  color: var(--ink);
+}
+
+.plugins-grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+
+.plugin-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: 1.35rem 1.3rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--line);
+  color: inherit;
+  transition: border-color 0.2s var(--ease), transform 0.2s var(--ease),
+    background 0.2s var(--ease);
+}
+
+.plugin-card:hover {
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
+  background: color-mix(in srgb, var(--accent-soft) 55%, var(--bg-elevated));
+  transform: translateY(-1px);
+}
+
+.plugin-card-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+}
+
+.plugin-card h2 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.plugin-card-version {
+  color: var(--ink-muted);
+  font-size: 0.88rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.plugin-card p {
+  color: var(--ink-muted);
+  line-height: 1.55;
+  flex: 1;
+}
+
+.plugin-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.plugin-tags.is-detail {
+  margin-top: 1.1rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.plugin-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.55rem;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--accent-ink);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.plugin-card-meta {
+  color: var(--ink-muted);
+  font-size: 0.88rem;
+}
+
+.plugins-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.85rem;
+  margin-top: 2rem;
+}
+
+.plugins-pagination-info {
+  color: var(--ink-muted);
+  font-size: 0.92rem;
+}
+
+.plugins-pagination-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.plugins-pagination-controls .btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.plugin-detail-hero {
+  padding: 3rem var(--page-pad) 0;
+  max-width: var(--max);
+  margin: 0 auto;
+}
+
+.plugin-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 1.25rem;
+  color: var(--accent-ink);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.plugin-back:hover {
+  text-decoration: underline;
+}
+
+.plugin-detail-title-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.65rem 1rem;
+}
+
+.plugin-detail-version {
+  color: var(--ink-muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 1rem;
+}
+
+.plugin-detail-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.5rem;
+}
+
+.plugin-detail-panel {
+  margin-top: 2.25rem;
+  padding: 1.4rem 1.35rem;
+  border: 1px solid var(--line);
+  background: var(--bg-elevated);
+}
+
+.plugin-detail-panel h2 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+}
+
+.plugin-detail-dl {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.plugin-detail-dl div {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.plugin-detail-dl dt {
+  color: var(--ink-muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.plugin-detail-dl dd {
+  color: var(--ink);
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.plugin-detail-dl a {
+  color: var(--accent-ink);
+  font-weight: 600;
+}
+
+.plugin-detail-dl a:hover {
+  text-decoration: underline;
+}
+
+.plugin-assets {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.plugin-asset {
+  display: grid;
+  gap: 0.35rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--line);
+  background: var(--bg);
+}
+
+.plugin-asset-platform {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.plugin-asset-meta {
+  color: var(--ink-muted);
+  font-size: 0.88rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.plugin-install-note {
+  margin-top: 2rem;
+  padding: 1.25rem 1.35rem;
+  border-left: 3px solid var(--accent);
+  background: var(--accent-soft);
+  max-width: 42rem;
+  line-height: 1.55;
+}
+
+@media (min-width: 720px) {
+  .plugins-toolbar {
+    grid-template-columns: minmax(0, 1fr) 14rem;
+  }
+
+  .plugins-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .plugin-detail-dl {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 980px) {
+  .plugins-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

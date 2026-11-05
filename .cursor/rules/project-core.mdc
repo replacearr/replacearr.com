@@ -9,7 +9,8 @@ Public marketing site for Replacearr. React 19 + Vite multi-page SPA. Repo: `git
 
 ## Layout
 
-- `src/pages/` — Home, Product, Install, Gallery
+- `src/pages/` — Home, Product, Install, Plugins, Gallery
+- `src/lib/pluginsCatalog.ts` — live fetch of replacearr-plugins registry (do not vendor JSON)
 - `src/components/SiteShell.tsx` — sticky nav + footer shell
 - `src/styles/tokens.css` + `layout.css` — design tokens and shared primitives
 - `public/images/{logos,desktop,mobile}/` — brand mark and UI screenshots
@@ -32,7 +33,10 @@ Public marketing site for Replacearr. React 19 + Vite multi-page SPA. Repo: `git
 ## Commands
 
 ```bash
-npm run dev
-npm run typecheck
-npm run build
+make install    # npm install
+make dev        # Vite dev server
+make typecheck  # tsc
+make build      # dist/ + 404.html for Pages
+make preview    # serve production build
+make            # list targets
 ```

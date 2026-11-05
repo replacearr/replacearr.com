@@ -17,7 +17,8 @@ alwaysApply: false
 ## Structure
 
 - Entry: `index.html` → `src/main.tsx` → `App` (router) → `SiteShell` → pages.
-- Routes: `/`, `/product`, `/install`, `/gallery`.
+- Routes: `/`, `/product`, `/install`, `/plugins`, `/plugins/:pluginId`, `/gallery`.
+- Plugin marketplace loads `registry.json` + manifests from raw GitHub (`replacearr-plugins`); do not copy that JSON into this repo.
 - Static deploy assets live in `public/` (`CNAME`, favicons, `images/`).
 
 ## TypeScript & verify
