@@ -24,3 +24,7 @@ npm run build
 ```
 
 `dist/` is deployed to GitHub Pages (custom domain via `public/CNAME`). See [AGENTS.md](./AGENTS.md).
+
+## License
+
+MIT
